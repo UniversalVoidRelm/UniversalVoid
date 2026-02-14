@@ -30,11 +30,10 @@ setInterval(updateClock, 1000);
 updateClock();
 
 
-// REAL BATTERY (ONLY WORKS IF DEVICE SUPPORTS IT)
+// Real battery on homepage only
 async function updateBattery() {
   const batteryElement = document.getElementById("battery");
-
-  if (!batteryElement) return; // Only homepage has battery
+  if (!batteryElement) return;
 
   if (!navigator.getBattery) {
     batteryElement.innerHTML = "🔋 N/A";
@@ -49,7 +48,6 @@ async function updateBattery() {
   }
 
   refreshBattery();
-
   battery.addEventListener("levelchange", refreshBattery);
 }
 
